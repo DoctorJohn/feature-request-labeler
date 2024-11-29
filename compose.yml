@@ -1,0 +1,14 @@
+services:
+  labeler:
+    image: ghcr.io/doctorjohn/feature-request-labeler:latest
+    build: .
+    env_file:
+      - ./.env
+    volumes:
+      - labeler-data:/usr/src/app/data
+    ports:
+      - "14831:14831"
+    command: ["bun", "run", "index.ts"]
+
+volumes:
+  labeler-data:

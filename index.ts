@@ -7,6 +7,7 @@ const posts: Record<string, string> = postsData;
 const server = new LabelerServer({
   did: process.env.LABELER_DID,
   signingKey: process.env.LABELER_KEY,
+  dbPath: "./data/labels.db",
 });
 
 server.start(14831, (error) => {
