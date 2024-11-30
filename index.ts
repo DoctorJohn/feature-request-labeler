@@ -39,7 +39,7 @@ bot.on("like", async (like) => {
     if (label) {
       await like.user.labelAccount([label]);
     } else if (like.subject.uri === POSTS.delete) {
-      await like.user.labelAccount(LABELS);
+      await like.user.negateAccountLabels(LABELS);
     }
   }
 });
