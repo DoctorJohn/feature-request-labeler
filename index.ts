@@ -2,7 +2,12 @@ import { LabelerServer } from "@skyware/labeler";
 import { Bot, Post } from "@skyware/bot";
 import postsData from "./posts.json";
 
-const posts: Record<string, string> = postsData;
+const POSTS: {
+  delete: string;
+  labels: Record<string, string>;
+} = postsData;
+
+const LABELS = Object.values(POSTS.labels);
 
 const server = new LabelerServer({
   did: process.env.LABELER_DID,
@@ -27,10 +32,12 @@ await bot.login({
 
 bot.on("like", async (like) => {
   if (like.subject instanceof Post) {
-    const label = posts[like.subject.uri];
+    const label = POSTS.labels[like.subject.uri];
 
     if (label) {
       await like.user.labelAccount([label]);
+    } else if (like.subject.uri === POSTS.delete) {
+      await like.user.labelAccount(LABELS);
     }
   }
 });
