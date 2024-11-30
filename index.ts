@@ -15,11 +15,11 @@ const server = new LabelerServer({
   dbPath: "./data/labels.db",
 });
 
-server.start(14831, (error) => {
+server.start(14831, (error, address) => {
   if (error) {
     console.error("Failed to start server", error);
   } else {
-    console.log("Server started on port 14831");
+    console.log("Server started on", address);
   }
 });
 
