@@ -1,6 +1,7 @@
 FROM oven/bun:1 AS base
 WORKDIR /usr/src/app
-RUN chown bun:bun /usr/src/app
+RUN mkdir /usr/src/app/data
+RUN chown bun:bun /usr/src/app/data
 
 FROM base AS install
 RUN mkdir -p /temp/dev
