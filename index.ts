@@ -37,9 +37,17 @@ bot.on("like", async (like) => {
     const label = POSTS.labels[like.subject.uri];
 
     if (label) {
-      await like.user.labelAccount([label]);
+      try {
+        await like.user.labelAccount([label]);
+      } catch (error) {
+        console.error("Failed to label account", error);
+      }
     } else if (like.subject.uri === POSTS.delete) {
-      await like.user.negateAccountLabels(LABELS);
+      try {
+        await like.user.negateAccountLabels(LABELS);
+      } catch (error) {
+        console.error("Failed to negate account labels", error);
+      }
     }
   }
 });
