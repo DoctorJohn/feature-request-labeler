@@ -32,6 +32,8 @@ await bot.login({
 
 bot.on("like", async (like) => {
   if (like.subject instanceof Post) {
+    console.log("LIKED", like.user.displayName, like.subject.uri);
+
     const label = POSTS.labels[like.subject.uri];
 
     if (label) {
