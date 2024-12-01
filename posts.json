@@ -1,6 +1,10 @@
 {
   "delete": "at://did:plc:rgigpkvlpcux67chfthapgat/app.bsky.feed.post/3lc6zleqctk2t",
   "labels": {
-    "at://did:plc:rgigpkvlpcux67chfthapgat/app.bsky.feed.post/3lc7krywf2k2m": "bookmarks"
+    "at://did:plc:rgigpkvlpcux67chfthapgat/app.bsky.feed.post/3lc7md4iah22a": "bookmarks",
+    "at://did:plc:rgigpkvlpcux67chfthapgat/app.bsky.feed.post/3lc7lmpaifc2c": "chat-replies",
+    "at://did:plc:rgigpkvlpcux67chfthapgat/app.bsky.feed.post/3lc7lpyp3p22c": "group-chats",
+    "at://did:plc:rgigpkvlpcux67chfthapgat/app.bsky.feed.post/3lc7ls2vkpk2c": "gifs",
+    "at://did:plc:rgigpkvlpcux67chfthapgat/app.bsky.feed.post/3lc7lzuje3k2y": "polls"
   }
 }
