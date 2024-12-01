@@ -32,19 +32,21 @@ await bot.login({
 
 bot.on("like", async (like) => {
   if (like.subject instanceof Post) {
-    console.log("LIKED", like.user.displayName, like.subject.uri);
+    console.log("Received like", like.user.did, like.subject.uri);
 
     const label = POSTS.labels[like.subject.uri];
 
     if (label) {
       try {
         await like.user.labelAccount([label]);
+        console.log("Labeled account", like.user.did, label);
       } catch (error) {
         console.error("Failed to label account", error);
       }
     } else if (like.subject.uri === POSTS.delete) {
       try {
         await like.user.negateAccountLabels(LABELS);
+        console.log("Negated account labels", like.user.did);
       } catch (error) {
         console.error("Failed to negate account labels", error);
       }
